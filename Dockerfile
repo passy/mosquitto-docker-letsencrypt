@@ -1,5 +1,5 @@
-FROM python:2.7-alpine
-LABEL maintainer bitrox <proxy@bitrox.io>
+FROM python:3.8.2-alpine3.11
+MAINTAINER passy <i@passy.me>
 
 # Set environment variables.
 ENV TERM=xterm-color
@@ -13,16 +13,11 @@ RUN \
 	apk upgrade && \
 	apk add \
 		bash \
-		coreutils \
-		nano \
-        	py-crypto \
 		ca-certificates \
-        	certbot \
 		mosquitto \
-		mosquitto-clients && \
-	rm -f /var/cache/apk/* && \
-	pip install --upgrade pip && \
-	pip install pyRFC3339 configobj ConfigArgParse
+		mosquitto-clients \
+		certbot && \
+	rm -f /var/cache/apk/*
 
 COPY run.sh /run.sh
 COPY certbot.sh /certbot.sh
