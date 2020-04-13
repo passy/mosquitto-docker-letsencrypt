@@ -38,11 +38,9 @@ else
                         if [ ! -z "$TESTCERT" ]; then
                                 echo "Obtaining TEST cert for $DOMAIN"
                                 certbot certonly \
-                                        --staging \
                                         --test-cert \
                                         --standalone \
                                         --agree-tos \
-                                        --standalone-supported-challenges http-01 \
                                         -n \
                                         -d $DOMAIN \
                                         -m $EMAIL
@@ -51,7 +49,6 @@ else
                                 certbot certonly \
                                         --standalone \
                                         --agree-tos \
-                                        --standalone-supported-challenges http-01 \
                                         -n \
                                         -d $DOMAIN \
                                         -m $EMAIL
