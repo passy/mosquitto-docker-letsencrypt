@@ -17,7 +17,7 @@ A straigtforward way of standing up a server is to use [docker-compose](https://
 version: '2'
 services:
   mqtt:
-    image: bitrox/alpine-mosquitto-certbot
+    image: passy/gbridge-mosquitto
     networks:
       - backend-net
     ports:
